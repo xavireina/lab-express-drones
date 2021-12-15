@@ -14,6 +14,10 @@ const express = require('express');
 const hbs = require('hbs');
 
 const app = express();
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'hbs');
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
